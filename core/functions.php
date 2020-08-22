@@ -1,0 +1,11 @@
+<?php
+function showError($errno,$errstr,$errfile, $errline){
+    echo 'Co loi: '.$errno;
+    echo '<br> thong bao loi'.$errstr;
+    echo '<br> File: '.$errfile;
+    echo '<br> Dong: '.$errline;
+}
+function show404Error(){
+    die('page not found');
+}
+?>
