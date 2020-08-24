@@ -44,11 +44,12 @@ class request{
     //     // call_user_func_array($this->controller, $this->action );
     //     }
     // }
-    
+
     // split '/' and ' ' of url
     private function urlProcess(){
-        if( isset($_GET["url"]) ){
-            return explode("/", filter_var(trim($_GET["url"], "/")));
+        $uri = $_SERVER['REQUEST_URI'];
+        if( isset($uri) ){
+            return explode("/", filter_var(trim($uri, "/")));
         }
     }
 }
