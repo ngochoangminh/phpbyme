@@ -1,7 +1,10 @@
 <?php
-class Controller{
-    public function __construct(){
+class ControllerBase{
 
+    public $database = null;
+    public function __construct(){
+        global $database;
+        $this->database = $database;
     }
     public function loadview($viewName, $data = [])
     {
@@ -11,6 +14,15 @@ class Controller{
         extract($data);
         require('views/'.$viewName.'.php');
 
+    }
+    public function loadModel($modelName){
+        $modelName = $modelName.'Model';
+        if (! file_exists('models/'.$modelName.'.php')){
+            return false;
+        }
+        require('models/'.$modelName.'.php');
+
+        $this->{$modelName} = new $modelName();
     }
 }
 ?>

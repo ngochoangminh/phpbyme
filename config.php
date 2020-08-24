@@ -4,7 +4,8 @@ $config =[
         'host' =>'localhost',
         'user' => 'root',
         'pass' => '',
-        'name' =>'test'
+        'name' =>'test',
+        'driver' => 'mysql'
     ]
     ];
 ?>

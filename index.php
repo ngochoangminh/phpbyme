@@ -14,15 +14,24 @@ if (ENV=='dev'){
 // if (file_exists('vendor/autoload.php')){
 //     require('vendor/autoload.php');
 // }
+
+
+// Load require
 $autoload = [
     'Controller',
     'Model',
-    'Request'
+    'Request',
+    'Database'
 ];
-
 foreach($autoload as $file){
     require('core/'.$file.'.php');
 }
+
+// Create Database
+$dbDriverName = $config['database']['driver'].'Driver';
+require('lib/DB_Driver/'.$dbDriverName.'.php');
+$dbDriver = new $dbDriverName();
+
 
 $request = new request();
 

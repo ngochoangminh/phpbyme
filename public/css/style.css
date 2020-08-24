@@ -1,0 +1,35 @@
+body{
+    width: 1080px;
+    margin: 0 auto;
+    padding: 10 0;
+}
+.header{
+    height: 100px;
+    margin: 0 0 30px 0;
+    background-color: lightskyblue;
+}
+.footer{
+    height: 100px;
+    margin: 30px 0 0 0;
+    background-color: lightblue;
+    text-align: center;
+}
+h1{
+    margin:0 auto;
+    text-align: left;
+}
+table{
+    width: 1080px;
+    border-collapse: collapse;
+}
+table, td, th{
+    text-align: center;
+    border: 1px solid black;
+}
+th{ 
+    height: 50px;
+    
+}
+td{
+    height: 120px;
+}
