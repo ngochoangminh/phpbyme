@@ -10,6 +10,7 @@ if (ENV=='dev'){
     set_error_handler('showError');
 }
 
+session_start();
 // Load third party libraries
 // if (file_exists('vendor/autoload.php')){
 //     require('vendor/autoload.php');
@@ -18,24 +19,23 @@ if (ENV=='dev'){
 
 // Load require
 $autoload = [
+    'Request',
     'Controller',
     'Model',
-    'Request',
     'Database'
 ];
 foreach($autoload as $file){
     require('core/'.$file.'.php');
 }
 
-// Create Database
-$dbDriverName = $config['database']['driver'].'Driver';
-require('lib/DB_Driver/'.$dbDriverName.'.php');
-$dbDriver = new $dbDriverName();
-
+// Create Database Connection
+// $dbDriverName = $config['database']['driver'].'Driver';
+// require('lib/DB_Driver/'.$dbDriverName.'.php');
+// $dbDriver = new $dbDriverName();
 
 $request = new request();
 
-// create controller
+// // create controller
 $controllerName = $request->controller;
 $actionName = $request->action;
 
@@ -51,6 +51,7 @@ $controller = new $controllerName;
 if (! method_exists($controller, $actionName)){
     show404Error();
 }
+
 // Call action
 $controller->{$actionName}();
 ?>

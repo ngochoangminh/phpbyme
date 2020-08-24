@@ -1,38 +1,20 @@
 <?php
 class adminModel extends ModelBase
 {
-    public function checkCreateTB()
-    {
-        $tbName = 'image';
-        $fields = [
-            'id'=>[
-                'type' => 'INT',
-                'constraint' => 5,
-                'unsigned' => TRUE,
-                'auto_increment' => TRUE,
-                'unique' => TRUE,
-                'primary' => TRUE,
-            ],
-            'title' => ['type' => 'TEXT'],
-            'description' => [
-                'type' =>'VARCHAR',
-                'constraint' => 255,
-                'default' => '',
-            ],
-            'image'=> [
-                'type' =>'LONGBLOB',
-                'NOT NULL' => TRUE,
-                'default' => '',
-            ],
-            'status' => [
-                'type' => 'ENUM',
-                'constraint' => ['Enabled', 'Disabled'],
-                'default' => 'Enabled',
-            ],
-        ];
-
-
-        
+    public function getAll(){
+        $qr = "SECLECT * FROM tets";
+        return mysqli_query($this->con, $qr);
+    }
+    public function add($data=[]){
+        $qr = "INSERT INTO image (title, decription, image, status) VALUES (".$data.");";
+        return mysqli_query($this->con, $qr);
+    }
+    public function edit($id, $data=[]){
+        $qr = "UPDATE image SET ".$data."=".$data." WHERE id=".$id.";";
+    }
+    public function delete($id){
+        $qr = "DELETE FROM image WHERE id=".$id.";";
+        return mysqli_query($this->con, $qr);
     }
     
 }

@@ -4,6 +4,7 @@ function showError($errno,$errstr,$errfile, $errline){
     echo '<br> Thong bao loi: '.$errstr;
     echo '<br> File: '.$errfile;
     echo '<br> Dong: '.$errline;
+    echo '<br>';
 }
 function show404Error(){
     die('page not found');

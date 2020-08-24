@@ -7,5 +7,5 @@ $config =[
         'name' =>'test',
         'driver' => 'mysql'
     ]
-    ];
+];
 ?>

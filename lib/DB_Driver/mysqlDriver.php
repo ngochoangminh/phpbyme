@@ -1,7 +1,12 @@
 <?php 
-require ('config.php');
+require ('./config.php');
+
 class mysqlDriver extends Database
-{ 
+{
+    // protected $servername = $config['database']['host'];
+    // protected $username = $config['database']['user'];
+    // protected $password = $config['database']['pass'];
+
     public function get($table, $where){
 
     }
@@ -18,20 +23,5 @@ class mysqlDriver extends Database
         
     }
     
-    public function connect()
-    {
-        $servername = $this->$config['database']['host'];
-        $username = $this -> $config['database']['user'];
-        $password = $this->$config['database']['pass'];
-
-        // Create connection
-        $conn = new mysqli($servername, $username, $password);
-
-        // Check connection
-        if ($conn->connect_error) 
-        {
-            die("Connection failed: " . $conn->connect_error);     
-        }
-    }
 }
 ?>

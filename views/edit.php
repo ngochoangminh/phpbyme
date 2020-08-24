@@ -6,8 +6,8 @@
     <title><?php echo $title ;?></title>
 
     <link rel="stylesheet" href="/public/css/style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" 
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
 <body>
     <div class="header">
@@ -15,28 +15,54 @@
     </div>
     <div class="content">
         <div class="content_header">
-            <div><h2>Edit</h2></div>
-            <div>
-                <button>Show</button>
-                <button>Back</button>
-            </div>    
+            <table style="border: none; ">
+                <tr>
+                    <td style="width: 80%; text-align:left;border: none; height: 50px;"><h2>Edit</h2></td>
+                    <td style="border: none; height: 50px;"><button>Show</button></td>
+                    <td style="border: none; height: 50px;" onclick="history.go(-1);"><button>Back</button></td>
+                </tr>
+            </table>  
+            </hr>
         </div>
         <div class="contents">
-            <div>
-                title
-            </div>
-            <div>
-                Description
-            </div>
-            <div>
-                Image
-            </div>
-            <div>
-                Status
-            </div>
-            <div>
-                <button>Submit</button>
-            </div>
+            <form action="" method="post" enctype="multipart/form-data">
+                <table style="border: none; ">
+                    <tr>
+                        <td style="width: 20%;border: none; text-align: left;">Title</td>
+                        <td style="border: none; text-align: left;">
+                            <input id="titleid" type="text" name="title" style="width: 300px;" >
+                        </td>
+                    </tr>
+                    </hr>
+                    <tr>
+                        <td style="width: 20%;border: none; text-align: left;">Description</td>
+                        <td style="border: none; text-align: left;">
+                            <textarea id="descriptionid" name="description" cols="80%" style="text-align: left;resize: horizontal;"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;border: none; text-align: left;">Image</td>
+                        <td  style="border: none; text-align: left;">
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;border: none; text-align: left;">Status</td>
+                        <td style="border: none; text-align: left;">
+                            <select name="status" id="statusid" style="margin-top: -5px; width:100px" >
+                                <option value="Enabled">Enabled</option>
+                                <option value="Disabled">Disabled</option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;border: none;"></td>
+                        <td style="width: 80%;border: none; text-align:left;">
+                            <button >Submit</button>
+                        </td>
+                    </tr>
+                </table>
+            </form>
         </div>
     </div>
     <div class="footer" >
