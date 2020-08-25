@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/public/css/style.css">    
 </head>
 <body>
+   
     <div class="header" style="text-align: center;">
         <h1 style="padding-top: 32px;">ADD NEW IMAGE</h1>
     </div>
@@ -55,7 +56,7 @@
                             Image:
                         </td>
                         <td style="width: 80%;border: none; text-align:left;">
-                            <input type="file" id="imageid" name="image" accept="image/*" onchange="readURL(this);">
+                            <input type="file" id="image" name="image"  onchange="readURL(this);">
                         </td>
                     </tr>
                     <tr class="form-group">
@@ -96,6 +97,13 @@
         Footer
     </div>
     <!-- Scrip bostrap 4 --> 
+    <script>
+    <?php
+        if ($$dataAdd['al']==true){
+            echo  'alert("Add successfully!")';
+        }
+    ?>
+    </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" 

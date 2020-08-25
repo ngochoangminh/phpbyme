@@ -23,25 +23,21 @@ class admin extends ControllerBase{
             'title' => 'Edit Site',
             'content' => 'Content Edit'
         ];
-        if (isset($_POST['submit'])){
-            $adminModel=new AdminModel();
-            $imagename=$_FILES['image']['name'];
-                if($imagename==''){
-                    $imagename='anh-dai-dien-FB-200.jpg';
-                }
-            $dataAdd['title']=$_POST['title'];
-            $dataAdd['description']=$_POST['description'];
-            $dataAdd['image']=$imagename;
-            $dataAdd['status']=$_POST['status'];
-            if($imagename!='anh-dai-dien-FB-200.jpg'){
-                move_uploaded_file($imagename,"./upload");
-            }
-            $data = $dataAdd['title'].','.$dataAdd['description'].','.$dataAdd['image'].','.$dataAdd['status'];
-            $adminModel->add($data);
-            }
-        $this->loadview('create', $dataAdd);
+        $adminModel = $this->loadModel('admin');
+        if (isset($_POST['submit']) && !empty($_FILES['image']['name'])){
 
-        
+            $imagename=$_FILES['image']['name'];
+            $title=$_POST['title'];
+            $description=$_POST['description'];
+            $status=$_POST['status'];
+
+            move_uploaded_file($_FILES['image']['tmp_name'], './upload/'.basename($imagename));
+            $data = "'$title','$description','$imagename','$status'";
+            printf($data);
+            $dataAdd['al'] = $adminModel->add($data);
+        }
+
+        $this->loadview('create', $dataAdd); 
     }
 }
 ?>

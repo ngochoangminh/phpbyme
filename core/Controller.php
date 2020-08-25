@@ -22,7 +22,7 @@ class ControllerBase{
         }
         require('models/'.$modelName.'.php');
 
-        $this->{$modelName} = new $modelName();
+        return new $modelName;
     }
 }
 ?>
