@@ -3,8 +3,12 @@ class request{
     public $controller = 'admin';
     public $action= 'manage';
     
-    public function __construct(){    
-        $this->getParam();
+    public function __construct(){  
+        $uri = $_SERVER['REQUEST_URI'];
+        if( isset($uri) ){
+            $arr =  explode("/", filter_var(trim($uri, "/")));
+        }
+        $this->getParam($arr);
     }
     
     public function post($name){
@@ -15,42 +19,21 @@ class request{
         return $_GET[$name] ?? null;
     }
 
-    private function getParam(){
-        if ($this->get('controller') != null){
-            $this->controller = $this->get('controller');
-        }
-        if ($this->get('action')!= null){
-            $this->action = $this->get('action');
-        }
-    }
-    // function __construct(){
-    //     $arr = $this->urlProcess();
-    //     echo $arr;
-    //     // Controller
-    //     if( file_exists("controllers/".$arr[0].".php") ){
-    //         $this->controller = $arr[0];
-    //         // unset($arr[0]);
+    // private function getParams(){
+    //     if ($this->get('controller') != null){
+    //         $this->controller = $this->get('controller');
     //     }
-    //     require_once "controllers/". $this->controller .".php";
-    //     $this->controller = new $this->controller;
-        
-    //     // Action
-    //     if(isset($arr[1])){
-    //         if( method_exists( $this->controller , $arr[1]) ){
-    //             $this->action = $arr[1];
-    //         }
-    //         // unset($arr[1]);
-    //     $controller->{$action}();
-    //     // call_user_func_array($this->controller, $this->action );
+    //     if ($this->get('action')!= null){
+    //         $this->action = $this->get('action');
     //     }
     // }
 
-    // split '/' and ' ' of url
-    private function urlProcess(){
-        $uri = $_SERVER['REQUEST_URI'];
-        if( isset($uri) ){
-            return explode("/", filter_var(trim($uri, "/")));
+    private function getParam(array $arr){
+        if ($arr != null){
+            $this->controller = $arr[0];
+            $this->action = $arr[1];
         }
+        
     }
 }
 ?>

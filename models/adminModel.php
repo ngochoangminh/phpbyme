@@ -5,7 +5,7 @@ class adminModel extends ModelBase
         $qr = "SECLECT * FROM tets";
         return mysqli_query($this->con, $qr);
     }
-    public function add($data=[]){
+    public function add($data){
         $qr = "INSERT INTO image (title, decription, image, status) VALUES (".$data.");";
         return mysqli_query($this->con, $qr);
     }

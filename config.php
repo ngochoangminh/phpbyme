@@ -4,7 +4,7 @@ $config =[
         'host' =>'localhost',
         'user' => 'root',
         'pass' => '',
-        'name' =>'test',
+        'name' =>'ngoc',
         'driver' => 'mysql'
     ]
 ];

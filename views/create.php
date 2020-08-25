@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ;?></title>
+    <title>Add site</title>
 
     <link rel="stylesheet" href="/public/css/style.css">    
 </head>
 <body>
-    <div class="header">
-        <h1><?php echo $content; ?></h1>
+    <div class="header" style="text-align: center;">
+        <h1 style="padding-top: 32px;">ADD NEW IMAGE</h1>
     </div>
     <div class="content">
         <div class="content_header">
@@ -28,8 +28,8 @@
             </table>
         </div>
         <div class=contents>
-            <form action="<? ?>" method="post" enctype="multipart/form-data">
-                <input type="hidden" name='pre' value="<?=$url_site('controller=admin&action=add')?>" >
+            <form action="/admin/add" method="post" enctype="multipart/form-data">
+                <input type="hidden" name='pre' value="">
                 <table style="border:none;">
                     <tr class="form-group">
                         <td style="width: 20%;border: none; text-align:left;">
@@ -63,7 +63,8 @@
                             
                         </td>
                         <td style="border: none; text-align:left;">
-                            <img id="blah" src="https://st.quantrimang.com/photos/image/2017/04/08/anh-dai-dien-FB-200.jpg" alt="your image" style="width:150px;height:150px;margin-top:5px" />
+                            <img id="blah" src="https://st.quantrimang.com/photos/image/2017/04/08/anh-dai-dien-FB-200.jpg" 
+                            alt="your image" style="width:150px;height:150px;margin-top:5px" />
                         </td>
                     </tr>
                 </table >
@@ -82,10 +83,9 @@
                     </tr>
                     <tr class="form-group">
                         <td style="width: 20%;border: none; text-align:left;" valign="top">
-                            
                         </td>
                         <td style="border: none; text-align:left;">
-                            <button type="submit" class="btn btn-outline-dark" style="margin-top:5px">Submit</button>
+                            <button type="submit" style="margin-top:5px">Submit</button>
                         </td>
                     </tr>
                 </table>

@@ -22,7 +22,8 @@ $autoload = [
     'Request',
     'Controller',
     'Model',
-    'Database'
+    'Database',
+    'Helper'
 ];
 foreach($autoload as $file){
     require('core/'.$file.'.php');
