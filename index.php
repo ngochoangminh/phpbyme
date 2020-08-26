@@ -36,7 +36,7 @@ foreach($autoload as $file){
 
 $request = new request();
 
-// // create controller
+// create controller
 $controllerName = $request->controller;
 $actionName = $request->action;
 $id =  $request->id;

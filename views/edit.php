@@ -1,3 +1,7 @@
+<?php
+include 'core/Model.php';
+include 'controllers/admin.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

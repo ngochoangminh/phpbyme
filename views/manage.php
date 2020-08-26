@@ -1,9 +1,14 @@
+<?php
+// include 'core/Model.php';
+// include 'controllers/admin.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title ;?></title>
+    <title>Admin home</title>
 
     <link rel="stylesheet" href="/public/css/style.css">
 
@@ -33,14 +38,14 @@
                 <tr class="row1st">
                     <th id="id" style="width: 40px;">Id</th>
                     <th id="img" style="width: 170px;">Thumb</th>
-                    <th id="title" style="width: 400px;">Title</th>
-                    <th id="status" style="width: 100px;">Status</th>
+                    <th id="title" style="width: 350px;">Title</th>
+                    <th id="status" style="width: 150px;">Status</th>
                     <th id=action>Action</th>
                 </tr>
 
                 <?php
-                if ($this->dataRes!=null){
-                    while ($item = mysqli_fetch_array($this->dataRes))
+                if ($this->data!=null){
+                   foreach ($data as $item)
                     {
                     ?>
                         <tr class="rows" >

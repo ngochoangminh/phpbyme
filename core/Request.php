@@ -20,22 +20,13 @@ class request{
         return $_GET[$name] ?? null;
     }
 
-    // private function getParams(){
-    //     if ($this->get('controller') != null){
-    //         $this->controller = $this->get('controller');
-    //     }
-    //     if ($this->get('action')!= null){
-    //         $this->action = $this->get('action');
-    //     }
-    // }
-
     private function getParam(array $arr){
         if ($arr != null){
             $this->controller = $arr[0];
             $this->action = $arr[1];
-            if ($arr[2] ?? null){
-                $this->id = $arr[2];
-            } 
+            // if ($arr[2] ?? null){
+            //     $this->id = $arr[2];
+            // } 
         } 
     }
 }

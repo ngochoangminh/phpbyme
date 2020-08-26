@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/public/css/style.css">
 </head>
 <body>
+    <div class="header">
+        <h1 style="padding-top: 32px;">MANAGE SITE</h1>
+    </div>
     <div class=contents>
             <br/>
             <form action="/admin/manage" method="post" enctype="multipart/form-data">
@@ -32,11 +35,12 @@
                             </td>
                             <td id="title"><?php echo $item['title'] ?></td>
                             <td id="status"><?php echo $item['status']?></td>
-                            <td id=action><a href=<?php echo "/admin/show/".$item['id']; ?>>Show</a> 
-                                | 
-                                <a href=<a href=<?php echo "/admin/edit/".$item['id']; ?>>Edit</a> 
-                                | 
-                                <a href=<a href=<?php echo "/admin/delete/".$item['id']; ?>>Delete</a> 
+                            <td id=action> 
+                                <a href=<?php echo "/admin/show?id=".$item['id']; ?>>Show</a> 
+                                <span>|</span>
+                                <a href=<a href=<?php echo "/admin/edit?id=".$item['id']; ?>>Edit</a> 
+                                <span>|</span>
+                                <a href=<a href=<?php echo "/admin/delete?id=".$item['id']; ?>>Delete</a> 
                             </td>
                         </tr>
                     <?php
@@ -45,5 +49,9 @@
                 ?>
             </table>
             </form>
+    </div>
+    <div class="footer" >
+        <h5 style="padding-top: 32px;">Footer</h5>
+    </div>
 </body>
 </html>

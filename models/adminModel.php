@@ -4,6 +4,11 @@ class adminModel extends ModelBase
     public function getAll(){
         $qr = "SECLECT * FROM `image`";
         $res = mysqli_query($this->con, $qr);
+        if ($res->num_rows>0){
+            while($row = mysqli_fetch_array($res)){
+                $data[] = $row;
+            }
+        }
         return $res;
     }
     public function add($data){
@@ -16,7 +21,7 @@ class adminModel extends ModelBase
     }
     public function delete($id){
         $qr = "DELETE FROM image WHERE id=".$id.";";
-        return mysqli_query($this->con, $qr);
+        mysqli_query($this->con, $qr);    
     }
     
 }
