@@ -99,7 +99,7 @@
     <!-- Scrip bostrap 4 --> 
     <script>
     <?php
-        if ($$dataAdd['al']==true){
+        if ($$dataA['res']==true){
             echo  'alert("Add successfully!")';
         }
     ?>

@@ -21,7 +21,7 @@ class ModelBase{
         $ex = mysqli_query($this->con, 'SELECT 1 FROM '.$tbName);
         if (! $ex){
             $qr = "CREATE TABLE image ( id INT NOT NULL AUTO_INCREMENT , 
-            title VARCHAR(50) NOT NULL , description VARCHAR(500) NULL , `image` LONGBLOB NOT NULL , 
+            title VARCHAR(50) NOT NULL , description VARCHAR(500) NULL , `image` VARCHAR(255) NOT NULL , 
             `status` ENUM('Enabled','Disabled') NOT NULL DEFAULT 'Enabled' , PRIMARY KEY (`id`)) ENGINE = InnoDB;";
             mysqli_query($this->con, $qr);
         }

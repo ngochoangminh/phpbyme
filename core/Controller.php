@@ -11,7 +11,7 @@ class ControllerBase{
         if (! file_exists('views/'.$viewName.'.php')){
             return false;
         }
-        extract($data);
+        // extract($data);
         require('views/'.$viewName.'.php');
 
     }

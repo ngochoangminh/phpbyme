@@ -13,34 +13,57 @@
 </head>
 <body>
     <div class="header">
-        <h1><?php echo $content; ?></h1>
+        <h1 style="padding-top: 32px;">MANAGE SITE</h1>
     </div>
     <div class="content">
         <div class="content_header">
-            <h2>Manage</h2>
-            <button>new</button>
+            <table style="border:none; ">
+                <tr>
+                    <td style="border:none; width: 90%"><h2 style="text-align: left;">Manage</h2></td>
+                    <td style="border:none; "><a href="/admin/add"> <button style="width: 70px;  text-align:center;">new</button></a></td>
+                </tr>
+            </table>
+            
+            
         </div>
         <div class=contents>
-            content show here
             <br/>
+            <form action="/admin/manage" method="post" enctype="multipart/form-data">
             <table>
                 <tr class="row1st">
-                    <th id="id">Id</th>
-                    <th id="img">Thumb</th>
-                    <th id="title">Title</th>
-                    <th id="status">Status</th>
+                    <th id="id" style="width: 40px;">Id</th>
+                    <th id="img" style="width: 170px;">Thumb</th>
+                    <th id="title" style="width: 400px;">Title</th>
+                    <th id="status" style="width: 100px;">Status</th>
                     <th id=action>Action</th>
                 </tr>
-                <tr class="rows" >
-                    <td id="id">1</td>
-                    <td id="img"><img style="width:150px; height:100px" hrep=#></td>
-                    <td id="title">Title image</td>
-                    <td id="status">4</td>
-                    <td id=action><a href="google.com">Show</a> | <a href="google.com">Edit</a> | <a href="google.com">Delete</a> </td>
-                </tr>
-              
-            </table>
 
+                <?php
+                if ($this->dataRes!=null){
+                    while ($item = mysqli_fetch_array($this->dataRes))
+                    {
+                    ?>
+                        <tr class="rows" >
+                            <td id="id"><?php echo $item['id']; ?></td>
+                            <td id="img">
+                                <img style="width:150px; height:100px" src=<?php echo "/upload/".$item['image'];?>>
+                            </td>
+                            <td id="title"><?php echo $item['title'] ?></td>
+                            <td id="status"><?php echo $item['status']?></td>
+                            <td id=action><a href=<?php echo "/admin/show/".$item['id']; ?>>Show</a> 
+                                | 
+                                <a href=<a href=<?php echo "/admin/edit/".$item['id']; ?>>Edit</a> 
+                                | 
+                                <a href=<a href=<?php echo "/admin/delete/".$item['id']; ?>>Delete</a> 
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                }
+                
+                ?>
+            </table>
+            </form>
         </div>
     </div>
     <div class="footer" >

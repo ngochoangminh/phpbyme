@@ -2,6 +2,7 @@
 class request{
     public $controller = 'admin';
     public $action= 'manage';
+    public $id = null;
     
     public function __construct(){  
         $uri = $_SERVER['REQUEST_URI'];
@@ -32,8 +33,10 @@ class request{
         if ($arr != null){
             $this->controller = $arr[0];
             $this->action = $arr[1];
-        }
-        
+            if ($arr[2] ?? null){
+                $this->id = $arr[2];
+            } 
+        } 
     }
 }
 ?>

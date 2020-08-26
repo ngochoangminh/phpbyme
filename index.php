@@ -39,6 +39,7 @@ $request = new request();
 // // create controller
 $controllerName = $request->controller;
 $actionName = $request->action;
+$id =  $request->id;
 
 // Check controller
 if (! file_exists('controllers/'.$controllerName.'.php')){
@@ -52,7 +53,10 @@ $controller = new $controllerName;
 if (! method_exists($controller, $actionName)){
     show404Error();
 }
-
-// Call action
 $controller->{$actionName}();
+if ($id != null){
+    $controller->{$actionName}->{$id}();
+}
+// Call action
+
 ?>

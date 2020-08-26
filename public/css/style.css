@@ -1,5 +1,5 @@
 body{
-    width: 900px;
+    width: 950px;
     margin: 0 auto;
     padding: 10 0;
 }
@@ -19,7 +19,7 @@ h1{
     text-align: left;
 }
 table{
-    width: 900px;
+    width: 950px;
     border-collapse: collapse;
 }
 table, td, th{
